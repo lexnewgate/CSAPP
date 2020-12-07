@@ -48,7 +48,32 @@ int main(int argc,char* argv[])
 
     while (line=fgets(line,maxchar,file))
     {
-        puts(line);
+        char * content=line;
+        while (*content)
+        {
+            char c= *content++;
+            if(c==' ')
+            {
+                printf("%-5s","SP");
+            }
+            else if(c=='\n')
+            {
+                printf("%-5s","\\n");
+            }
+            else
+            {
+                printf("%-5c",c);
+            }
+            
+        }
+        putchar('\n');
+        content=line;
+        while (*content)
+        {
+            printf("%-5d",*content++);
+        }
+        putchar('\n');
+        
     }
 
     fclose(file);
